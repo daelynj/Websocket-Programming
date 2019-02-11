@@ -46,12 +46,6 @@ with socket(AF_INET, SOCK_STREAM) as server_socket:
             connection_socket.send(b'\nHTTP/1.1 200 OK\n\n')
             connection_socket.send(output_data.encode())  #use this when testing in the browser
 
-            #do i even need this? why was it provided.
-            #Send the content of the requested file to the client
-            """for i in range(0, len(output_data)):           
-                connection_socket.send(output_data[i].encode())
-            connection_socket.send("\r\n".encode())"""
-
             connection_socket.close()
         except IOError:
             #Send response message for file not found
